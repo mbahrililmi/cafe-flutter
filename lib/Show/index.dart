@@ -313,7 +313,10 @@ class CafeDetailGrid extends StatelessWidget {
                                   height: 50,
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      // action
+                                       Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return order.MainScreen(place: place);
+                                      }));
                                     },
                                     child: const Text('Pesan Menu'),
                                   ),
