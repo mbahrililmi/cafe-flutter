@@ -7,6 +7,7 @@ class Cafe {
   String ticketPrice;
   String imageAsset;
   List<String> imageUrls;
+  String rating;
 
   Cafe({
     required this.name,
@@ -17,6 +18,7 @@ class Cafe {
     required this.ticketPrice,
     required this.imageAsset,
     required this.imageUrls,
+    this.rating = '0',
   });
 }
 

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:cafe/Modal/data.dart';
+
+import 'package:cafe/Order/index.dart' as order; // order
+
+import 'package:cafe/Modal/data.dart'; // data
+
 
 var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
@@ -141,6 +145,25 @@ class CafeDetail extends StatelessWidget {
                 }).toList(),
               ),
             ),
+            Container(
+              // make button
+              margin: const EdgeInsets.symmetric(vertical: 16.0),
+              // make padding
+              padding: const EdgeInsets.only(bottom: 10.0),
+              child: SizedBox(
+                width: 200,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return order.MainScreen(place: place);
+                    }));
+                  },
+                  child: const Text('Pesan Menu'),
+                ),
+              ),
+            )
           ],
         ),
       ),
@@ -279,6 +302,23 @@ class CafeDetailGrid extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              Container(
+                                // make button
+                                margin:
+                                    const EdgeInsets.symmetric(vertical: 16.0),
+                                // make padding
+                                padding: const EdgeInsets.only(bottom: 10.0),
+                                child: SizedBox(
+                                  width: 200,
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      // action
+                                    },
+                                    child: const Text('Pesan Menu'),
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         ),
