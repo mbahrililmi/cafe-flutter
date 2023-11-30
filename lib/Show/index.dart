@@ -5,7 +5,6 @@ import 'package:cafe/Order/index.dart' as order; // order
 
 import 'package:cafe/Modal/data.dart'; // data
 
-
 var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
 class MainScreen extends StatelessWidget {
@@ -47,7 +46,10 @@ class CafeDetail extends StatelessWidget {
                 Image.asset(place.imageAsset),
                 SafeArea(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 16,
+                      horizontal: 64,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -174,9 +176,9 @@ class CafeDetail extends StatelessWidget {
 class CafeDetailGrid extends StatelessWidget {
   final Cafe place;
   final _scrollController = ScrollController();
-  
+
   CafeDetailGrid({Key? key, required this.place}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -190,12 +192,12 @@ class CafeDetailGrid extends StatelessWidget {
         ),
         child: Center(
           child: SizedBox(
-            width: screenWidth <= 1200 ? 800 : 1200,
+            width: screenWidth <= 1200 ? 800 : 800,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const Text(
-                  'Wisata Bandung',
+                  'Cafe Indonesia',
                   style: TextStyle(
                     fontFamily: 'Staatliches',
                     fontSize: 32,
@@ -226,7 +228,14 @@ class CafeDetailGrid extends StatelessWidget {
                                     padding: const EdgeInsets.all(4.0),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
-                                      child: Image.network(url),
+                                      child: Image.network(
+                                        url,
+                                        width:
+                                            120, // Sesuaikan dengan kebutuhan
+                                        height:
+                                            120, // Sesuaikan dengan kebutuhan
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   );
                                 }).toList(),
@@ -313,7 +322,7 @@ class CafeDetailGrid extends StatelessWidget {
                                   height: 50,
                                   child: ElevatedButton(
                                     onPressed: () {
-                                       Navigator.push(context,
+                                      Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
                                         return order.MainScreen(place: place);
                                       }));
@@ -337,7 +346,6 @@ class CafeDetailGrid extends StatelessWidget {
     );
   }
 }
-
 
 class FavoriteButton extends StatefulWidget {
   const FavoriteButton({Key? key}) : super(key: key);
